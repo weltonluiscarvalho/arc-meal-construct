@@ -11,7 +11,7 @@ public class MealRegisterConverter {
     public MealRegister recordToEntity(MealRegisterRecord record, String imageUrl) {
         MealRegister entity = new MealRegister();
 
-        entity.setMeal(new Meal(record.mealName()));
+        entity.setMeal(record.mealName());
         entity.setMass(record.mass());
         entity.setRegisterDate(record.registerDate());
         entity.setImageUrl(imageUrl);

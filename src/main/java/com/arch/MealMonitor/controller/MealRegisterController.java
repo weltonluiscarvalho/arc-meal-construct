@@ -44,9 +44,9 @@ public class MealRegisterController {
     }
 
     private static Boolean isRegisterValid(MealRegisterRecord mealRegisterRecord) {
-        if (mealRegisterRecord.image().isEmpty() || !isImage(mealRegisterRecord.image())) {
-            return Boolean.FALSE;
-        }
+//        if (mealRegisterRecord.image().isEmpty() || !isImage(mealRegisterRecord.image())) {
+//            return Boolean.FALSE;
+//        }
 
         if (mealRegisterRecord.mealName().isEmpty()) {
             return Boolean.FALSE;

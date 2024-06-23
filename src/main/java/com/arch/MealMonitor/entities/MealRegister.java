@@ -1,11 +1,19 @@
 package com.arch.MealMonitor.entities;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Entity
 public class MealRegister {
 
-    private Meal meal;
+    @Id
+    @GeneratedValue
+    private UUID mealId;
+    private String meal;
     private LocalDateTime registerDateTime;
     private Double mass;
     private String imageUrl;
@@ -17,11 +25,11 @@ public class MealRegister {
         return mass;
     }
 
-    public Meal getMeal() {
+    public String getMeal() {
         return meal;
     }
 
-    public void setMeal(Meal meal) {
+    public void setMeal(String meal) {
         this.meal = meal;
     }
 

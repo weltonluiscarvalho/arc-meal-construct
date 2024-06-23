@@ -24,6 +24,7 @@ public class MealRegisterService {
     @Autowired
     private MealRegisterRepository repository;
 
+    @Autowired
     private MealRegisterConverter converter;
 
     public MealRegisterService(){
@@ -33,15 +34,19 @@ public class MealRegisterService {
 
         MealRegister mealRegister = converter.recordToEntity(mealRegisterRecord, imageUrl(mealRegisterRecord, image));
 
-        try {
-            saveImage(image);
-        } catch (IOException e) {
-        }
+//        try {
+//            saveImage(image);
+//        } catch (IOException e) {
+//        }
 
         repository.save(mealRegister);
     }
 
     private String imageUrl(MealRegisterRecord mealRegisterRecord, MultipartFile image) {
+
+        if(Objects.isNull(image)) {
+            return "";
+        }
 
         String diet = "diet0123"; //TODO retrieve the actual diet name in database
         String dayOfWeek = mealRegisterRecord.registerDate().getDayOfWeek().toString();
